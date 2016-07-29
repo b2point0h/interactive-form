@@ -203,19 +203,26 @@ $('form').submit(function (e){
 		$("html, body").animate({scrollTop: 0}, "slow");
 		errorMessage = "<h2>Error!</h2> Please select at least one activity.";
 		$('.activities').focus();
+	} else if ( $("#payment").val() === "select_method" )  {
+		$("html, body").animate({scrollTop: 0}, "slow");
+		errorMessage = "<h2>Error!</h2>Please select a payment method.";
+		$('#payment').focus();
 	} else if ( $("#payment").val() === "credit card" && !creditCard.test($("#cc-num").val()) )  {
+		$("html, body").animate({scrollTop: 0}, "slow");
 		errorMessage = "<h2>Error!</h2>Please enter a valid credit card number.";
 		$('#cc-num').focus();
 	} else if ( $("#payment").val() === "credit card" && !zipCode.test($("#zip").val()) )  {
+		$("html, body").animate({scrollTop: 0}, "slow");
 		errorMessage = "<h2>Error!</h2>Please enter your zip code.";
 		$('#zip').focus();
 	} else if ( $("#payment").val() === "credit card" && $("#cvv").val().length < 3)  {
+		$("html, body").animate({scrollTop: 0}, "slow");
 		errorMessage = "<h2>Error!</h2>Please enter a 3 digit CVV";
 		$('#cvv').focus();
 	} else {
 		$("html, body").animate({scrollTop: 0}, "slow");
 		errorMessage = "";
-		alert("Success!");
+		alert("Thanks for registering! We'll see you at the Con!");
 	} 
 	document.getElementById('error-message').innerHTML = errorMessage;
 	$('#error-message').show();
